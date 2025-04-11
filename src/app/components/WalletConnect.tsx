@@ -30,7 +30,7 @@ export default function WalletConnect({ onConnected }: WalletConnectProps) {
     <div className="flex flex-col items-center gap-4">
       {!selectedWallet ? (
         <>
-          <h2 className="text-xl font-semibold">连接钱包</h2>
+          <h2 className="text-xl font-semibold">Wallet Connet</h2>
           <div className="flex gap-4">
             {wallets.map((wallet, index) => (
               <button
