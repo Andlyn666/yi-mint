@@ -1,0 +1,10 @@
+[package]
+name = "yi_jing_nft"
+version = "0.1.0"
+published-at = "0x0" # Will be filled when you publish
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "devnet-v1.47.0" }
+
+[addresses]
+yi_jing_nft = "0x4c8b168fc9a5cdf525357e6b0f8c65593e6ac4a6263edf8f27e20adb09e73bcf" # Will be replaced with your address after publishing 
