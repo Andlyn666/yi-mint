@@ -90,7 +90,7 @@ const createWalletAccount = (address: string, publicKey?: Uint8Array): WalletAcc
   return {
     address,
     publicKey: publicKey || new Uint8Array(),
-    chains: ['sui:mainnet'],
+    chains: ['sui:testnet'],
     features: ['sui:signAndExecuteTransaction']
   };
 };

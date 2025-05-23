@@ -62,9 +62,9 @@ export default function NFTDisplay({ hexagram, txId, objectId }: NFTDisplayProps
 
   return (
     <div className="mt-8">
-      <h2 className="text-2xl font-semibold mb-4">您的易经 NFT</h2>
-      <div className="aspect-square w-full max-w-md mx-auto bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center overflow-hidden">
-        <div className="text-3xl font-bold mb-4">第 {hexagram} 卦：{getHexagramName(hexagram)}</div>
+      <h2 className="text-2xl font-semibold mb-4">Your YI NFT</h2>
+      <div className="w-full max-w-md mx-auto bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center overflow-hidden">
+        <div className="text-3xl font-bold mb-4">No. {hexagram} 卦：{getHexagramName(hexagram)}</div>
         
         {/* Display the actual NFT image */}
         <div className="relative w-full aspect-square mb-4">
@@ -76,12 +76,7 @@ export default function NFTDisplay({ hexagram, txId, objectId }: NFTDisplayProps
             priority
           />
         </div>
-        
-        {/* Display hexagram lines as visual representation */}
-        <div className="w-full max-w-[120px]">
-          {renderHexagramLines(hexagram)}
-        </div>
-        
+         
         {/* Display blockchain information if available */}
         {(txId || objectId) && (
           <div className="mt-4 text-xs text-gray-400 w-full">

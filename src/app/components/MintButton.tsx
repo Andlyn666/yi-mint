@@ -16,7 +16,7 @@ export default function MintButton({ onMint, disabled = false }: MintButtonProps
           : 'bg-gradient-to-r from-yellow-600 to-red-600 hover:opacity-90'
       }`}
     >
-      占卜 & Mint NFT
+       Divine & Mint NFT
     </button>
   );
 }

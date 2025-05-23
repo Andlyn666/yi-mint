@@ -60,17 +60,17 @@ export default function Home() {
   // Helper function to get a sample interpretation based on hexagram
   const getInterpretation = (hexagramNumber: number, userQuestion: string) => {
     const interpretations = [
-      "道路坦荡，前程光明。持续当前方向，必有所获。",
-      "暂时的困难终将过去，耐心等待转机。",
-      "大胆前进，时机已到，不要犹豫。",
-      "谨慎行事，潜在风险需要注意。",
-      "与志同道合者合作，共同前进。"
+      "The road is smooth and the future is bright. Continue in your current direction and you will achieve something.",
+      "Temporary difficulties will eventually pass; be patient and wait for a turning point.",
+      "Move forward boldly, the time has come—do not hesitate.",
+      "Act with caution; pay attention to potential risks.",
+      "Cooperate with like-minded people and move forward together."
     ];
     
     const randomIndex = Math.floor(Math.random() * interpretations.length);
     const question = userQuestion || "您的未来方向";
     
-    return `关于「${question}」的解读：\n\n第${hexagramNumber}卦 - ${interpretations[randomIndex]}\n\n宜：谨慎思考，稳步前行\n忌：急躁冒进，贪图小利`;
+    return `About「${question}」：\n\nNo. ${hexagramNumber}卦 - ${interpretations[randomIndex]}\n\nNice to ：Think carefully and move forward steadily.\nDon't be：Impetuous and rash, seeking quick and small gains.`;
   };
 
   // Get file extension for hexagram image
@@ -205,7 +205,7 @@ export default function Home() {
   return (
     <main className="min-h-screen p-8 bg-gradient-to-b from-gray-900 to-black text-white">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-8">易经 NFT 占卜</h1>
+        <h1 className="text-4xl font-bold text-center mb-8">YI NFT Fortunetelling</h1>
         
         <WalletConnect onConnected={handleWalletConnected} />
 
@@ -218,7 +218,7 @@ export default function Home() {
             )}
             <div className="mb-6">
               <label htmlFor="question" className="block text-lg mb-2">
-                输入您的问题（选填）
+                Enter your question (optional)
               </label>
               <textarea
                 id="question"
@@ -226,7 +226,7 @@ export default function Home() {
                 onChange={(e) => setQuestion(e.target.value)}
                 className="w-full p-3 rounded-lg bg-gray-800 text-white"
                 rows={4}
-                placeholder="请输入您想要占卜的问题..."
+                placeholder="Please enter the question for which you want to have a divination..."
                 disabled={isMinting}
               />
             </div>
@@ -236,7 +236,7 @@ export default function Home() {
               <div className="mt-4">
                 <div className="flex justify-center items-center gap-2 mb-2">
                   <div className="animate-spin h-5 w-5 border-2 border-white rounded-full border-t-transparent"></div>
-                  <span>{mintStatus || '占卜中，请稍候...'}</span>
+                  <span>{mintStatus || 'Divination in progress. Please wait a moment...'}</span>
                 </div>
                 <div className="w-full bg-gray-700 h-2 rounded-full overflow-hidden">
                   <div className="bg-green-500 h-full animate-pulse" style={{ width: '100%' }}></div>
@@ -288,7 +288,7 @@ export default function Home() {
               }}
               className="px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              再次占卜
+              Try Again
             </button>
           </div>
         )}

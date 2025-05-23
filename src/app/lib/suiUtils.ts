@@ -1,13 +1,12 @@
 import { getFullnodeUrl, SuiClient } from '@mysten/sui/client';
 import { Transaction } from '@mysten/sui/transactions';
-import { bcs } from '@mysten/sui/bcs';
 import { Wallet, signAndExecuteTransaction } from '@mysten/wallet-standard';
 
-// Connect to SUI blockchain - use testnet for development
-const provider = new SuiClient({ url: getFullnodeUrl('devnet') });
+// Connect to SUI blockchain - use testnet to match wallet configuration
+const provider = new SuiClient({ url: getFullnodeUrl('testnet') });
 
-// Package ID of your deployed Move package (to be replaced with your actual package ID)
-const PACKAGE_ID = '0x...'; // Replace with your actual package ID after deployment
+// Package ID of your deployed Move package
+const PACKAGE_ID = '0x0779fd72f6ed37a9eed7874bc6983f1724df4de9aed0131fd63eff502c6f09db';
 // Module name in your Move package
 const MODULE_NAME = 'yi_jing_nft';
 // Function name to mint NFT in your Move package
@@ -28,25 +27,22 @@ export async function mintYiJingNFT(
     // Create a new transaction
     const tx = new Transaction();
     
-    // Add arguments using bcs serialization
-    const args = [
-      bcs.string().serialize(name),
-      bcs.string().serialize(description),
-      bcs.string().serialize(imageUrl),
-      bcs.u64().serialize(hexagramNumber),
-      bcs.string().serialize(hexagramName),
-      bcs.string().serialize(question),
-      bcs.string().serialize(recipientAddress)
-    ];
-    
-    // Call the mint function from your Move package
+    // Add the mint function call with properly formatted arguments
     tx.moveCall({
       target: `${PACKAGE_ID}::${MODULE_NAME}::${MINT_FUNCTION}`,
-      arguments: args
+      arguments: [
+        tx.pure.string(name),
+        tx.pure.string(description),
+        tx.pure.string(imageUrl),
+        tx.pure.u64(hexagramNumber),
+        tx.pure.string(hexagramName),
+        tx.pure.string(question),
+        tx.pure.address(recipientAddress)
+      ]
     });
 
     // Execute the transaction using the wallet's features
-    console.log('Executing transaction with wallet:', wallet.name);
+    console.log('Executing transaction with wallet account:', wallet.accounts[0]);
     
     // Use the signAndExecuteTransaction helper
     const result = await signAndExecuteTransaction(wallet, {

@@ -40,9 +40,9 @@ npm run dev
 
 1. Connect your SUI wallet by clicking on one of the wallet options
 2. Enter your question (optional)
-3. Click "占卜 & Mint NFT" to generate your hexagram
+3. Click " Divine & Mint NFT" to generate your hexagram
 4. View your hexagram NFT and interpretation
-5. Click "再次占卜" to perform another divination
+5. Click " Divine Again" to perform another divination
 
 ## Tech Stack
 
