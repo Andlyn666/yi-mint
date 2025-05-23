@@ -39,27 +39,6 @@ export default function NFTDisplay({ hexagram, txId, objectId }: NFTDisplayProps
     return `${address.substring(0, 6)}...${address.substring(address.length - 6)}`;
   };
 
-  // Function to render hexagram lines
-  const renderHexagramLines = (num: number) => {
-    // Convert to binary and pad with zeros
-    const binary = (num % 64).toString(2).padStart(6, '0');
-    
-    return binary.split('').map((bit, index) => (
-      <div 
-        key={index} 
-        className={`h-2 rounded-full mb-2 ${bit === '1' ? 'bg-yellow-500' : 'flex gap-1'}`}
-      >
-        {bit === '0' && (
-          <>
-            <div className="h-2 flex-1 bg-yellow-500 rounded-full"></div>
-            <div className="h-2 w-4"></div>
-            <div className="h-2 flex-1 bg-yellow-500 rounded-full"></div>
-          </>
-        )}
-      </div>
-    ));
-  };
-
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-semibold mb-4">Your YI NFT</h2>
